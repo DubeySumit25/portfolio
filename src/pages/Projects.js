@@ -23,13 +23,15 @@ const PROJECTS = [
   },
   {
     id: 3,
-    title: 'CRYPTO RADAR',
-    subtitle: 'Market Analytics Dashboard',
-    description: 'Real-time cryptocurrency tracking dashboard with custom charting, portfolio management, and automated alert systems.',
-    tech: ['React', 'Node.js', 'WebSocket', 'Chart.js', 'AWS'],
-    tag: 'DASHBOARD',
+    title: 'BOOKMYEVENT',
+    subtitle: 'Event Management & Booking Platform',
+    description: 'Full-stack event booking platform with JWT authentication, role-based access for organizers & buyers, ticket booking system, and email notifications.',
+    tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'Railway', 'Render', 'Vercel'],
+    tag: 'FULL STACK',
     color: 'var(--neon-green)',
     status: 'LIVE',
+    demo: 'https://bookmyevent25.vercel.app',
+    source: 'https://github.com/DubeySumit25/bookmyevent-backend',
   },
   {
     id: 4,
@@ -66,8 +68,8 @@ const PROJECTS = [
 const FILTERS = ['ALL', 'FULL STACK', 'BACKEND', 'WEB APP', 'DASHBOARD', 'DATA ENG'];
 
 export default function Projects() {
-  const [active,   setActive]   = useState('ALL');
-  const [hovered,  setHovered]  = useState(null);
+  const [active, setActive] = useState('ALL');
+  const [hovered, setHovered] = useState(null);
 
   const filtered = active === 'ALL' ? PROJECTS : PROJECTS.filter(p => p.tag === active);
 
@@ -215,12 +217,24 @@ export default function Projects() {
 
               {/* Links */}
               <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <button className="btn-neon" style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}>
-                  LIVE DEMO
-                </button>
-                <button className="btn-neon btn-neon-pink" style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}>
-                  SOURCE
-                </button>
+                {p.demo && (
+                  <button
+                    className="btn-neon"
+                    style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
+                    onClick={() => window.open(p.demo, '_blank')}
+                  >
+                    LIVE DEMO
+                  </button>
+                )}
+                {p.source && (
+                  <button
+                    className="btn-neon btn-neon-pink"
+                    style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
+                    onClick={() => window.open(p.source, '_blank')}
+                  >
+                    SOURCE
+                  </button>
+                )}
               </div>
 
               {/* Corner accent */}
