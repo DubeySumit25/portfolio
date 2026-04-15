@@ -3,69 +3,19 @@ import React, { useState } from 'react';
 const PROJECTS = [
   {
     id: 1,
-    title: 'NEURAL COMMERCE',
-    subtitle: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution with AI-powered recommendations, real-time inventory management, and seamless payment integration.',
-    tech: ['React', 'Spring Boot', 'PostgreSQL', 'Redis', 'Docker'],
-    tag: 'FULL STACK',
-    color: 'var(--neon-cyan)',
-    status: 'LIVE',
-  },
-  {
-    id: 2,
-    title: 'TASK MATRIX',
-    subtitle: 'Project Management Tool',
-    description: 'Collaborative task management system with real-time updates via WebSockets, drag-and-drop boards, and team analytics dashboard.',
-    tech: ['React', 'Spring Boot', 'WebSocket', 'MongoDB'],
-    tag: 'WEB APP',
-    color: 'var(--neon-purple)',
-    status: 'LIVE',
-  },
-  {
-    id: 3,
     title: 'BOOKMYEVENT',
     subtitle: 'Event Management & Booking Platform',
-    description: 'Full-stack event booking platform with JWT authentication, role-based access for organizers & buyers, ticket booking system, and email notifications.',
+    description: 'Developed a full-stack event management platform enabling event creation, booking, and user role management with secure JWT authentication and responsive UI for seamless user experience.',
     tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'Railway', 'Render', 'Vercel'],
     tag: 'FULL STACK',
     color: 'var(--neon-green)',
     status: 'LIVE',
     demo: 'https://bookmyevent25.vercel.app',
     source: 'https://github.com/DubeySumit25/bookmyevent-backend',
-  },
-  {
-    id: 4,
-    title: 'SECURE VAULT',
-    subtitle: 'Authentication Microservice',
-    description: 'Enterprise-grade authentication and authorization microservice with JWT, OAuth2, and multi-factor authentication support.',
-    tech: ['Spring Boot', 'Spring Security', 'JWT', 'PostgreSQL'],
-    tag: 'BACKEND',
-    color: 'var(--neon-pink)',
-    status: 'IN DEV',
-  },
-  {
-    id: 5,
-    title: 'DATA PULSE',
-    subtitle: 'Real-Time Analytics Engine',
-    description: 'High-throughput data pipeline processing millions of events per second with live visualization and anomaly detection.',
-    tech: ['Kafka', 'Spring Boot', 'ClickHouse', 'Grafana'],
-    tag: 'DATA ENG',
-    color: 'var(--neon-cyan)',
-    status: 'LIVE',
-  },
-  {
-    id: 6,
-    title: 'CHAT NEXUS',
-    subtitle: 'Messaging Platform',
-    description: 'Scalable real-time chat application supporting group channels, file sharing, and end-to-end encryption.',
-    tech: ['React', 'Spring Boot', 'WebSocket', 'Redis', 'S3'],
-    tag: 'FULL STACK',
-    color: 'var(--neon-purple)',
-    status: 'LIVE',
-  },
+  }
 ];
 
-const FILTERS = ['ALL', 'FULL STACK', 'BACKEND', 'WEB APP', 'DASHBOARD', 'DATA ENG'];
+const FILTERS = ['ALL', 'FULL STACK'];
 
 export default function Projects() {
   const [active, setActive] = useState('ALL');
@@ -178,6 +128,7 @@ export default function Projects() {
               }}>
                 {p.title}
               </h3>
+
               <div style={{
                 fontFamily: 'Rajdhani, sans-serif',
                 fontSize: '0.85rem',
@@ -217,24 +168,21 @@ export default function Projects() {
 
               {/* Links */}
               <div style={{ display: 'flex', gap: '0.75rem' }}>
-                {p.demo && (
-                  <button
-                    className="btn-neon"
-                    style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
-                    onClick={() => window.open(p.demo, '_blank')}
-                  >
-                    LIVE DEMO
-                  </button>
-                )}
-                {p.source && (
-                  <button
-                    className="btn-neon btn-neon-pink"
-                    style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
-                    onClick={() => window.open(p.source, '_blank')}
-                  >
-                    SOURCE
-                  </button>
-                )}
+                <button
+                  className="btn-neon"
+                  style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
+                  onClick={() => window.open(p.demo, '_blank')}
+                >
+                  LIVE DEMO
+                </button>
+
+                <button
+                  className="btn-neon btn-neon-pink"
+                  style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
+                  onClick={() => window.open(p.source, '_blank')}
+                >
+                  SOURCE
+                </button>
               </div>
 
               {/* Corner accent */}
