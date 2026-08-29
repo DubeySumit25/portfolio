@@ -385,7 +385,7 @@ export default function Experience() {
           }}
         >
           <p style={{ color: 'var(--text-dim)', marginBottom: '1rem', fontSize: '0.95rem' }}>
-            💼 More experiences to showcase? Your professional journey is just beginning...
+           
           </p>
           <p
             style={{
@@ -395,7 +395,7 @@ export default function Experience() {
               letterSpacing: '0.1em',
             }}
           >
-            Click cards to expand and view detailed contributions & tech stack
+            
           </p>
         </div>
       </div>
