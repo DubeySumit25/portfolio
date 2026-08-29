@@ -1,4 +1,3 @@
-```jsx
 import React from 'react';
 
 const responsibilities = [
@@ -134,4 +133,4 @@ export default function Experience() {
     </section>
   );
 }
-```
+
