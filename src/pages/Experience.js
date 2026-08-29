@@ -55,7 +55,7 @@ export default function Experience() {
           style={{
             display: 'grid',
             gridTemplateColumns: '1fr',
-            gap: '2rem',
+            gap: 'clamp(1rem, 3vw, 2rem)',
             marginBottom: '3rem',
           }}
         >
@@ -64,12 +64,13 @@ export default function Experience() {
               key={exp.id}
               className="cyber-card"
               style={{
-                padding: '2rem',
+                padding: 'clamp(1rem, 4vw, 2rem)',
                 border: `1px solid ${exp.color}33`,
                 borderLeft: `3px solid ${exp.color}`,
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
-                transform: expandedId === exp.id ? 'scale(1.01)' : 'scale(1)',
+                transform: expandedId === exp.id ? 'scale(1.005)' : 'scale(1)',
+                overflow: 'hidden',
               }}
               onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
               onMouseEnter={(e) => {
@@ -84,62 +85,98 @@ export default function Experience() {
               {/* Header */}
               <div
                 style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr auto',
-                  gap: '2rem',
-                  alignItems: 'start',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
                   marginBottom: '1.5rem',
                 }}
               >
-                <div>
-                  <span
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.5rem',
-                      padding: '0.3rem 0.8rem',
-                      marginBottom: '0.75rem',
-                      border: `1px solid ${exp.color}`,
-                      borderRadius: '4px',
-                      fontFamily: 'Share Tech Mono, monospace',
-                      fontSize: '0.6rem',
-                      color: exp.color,
-                      letterSpacing: '0.1em',
-                    }}
-                  >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: '1rem',
+                    flexWrap: 'wrap',
+                  }}
+                >
+                  <div style={{ flex: 1, minWidth: '200px' }}>
                     <span
                       style={{
-                        width: 6,
-                        height: 6,
-                        borderRadius: '50%',
-                        background: exp.color,
-                        boxShadow: `0 0 8px ${exp.color}`,
-                        animation: 'pulse-glow 2s infinite',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.3rem 0.8rem',
+                        marginBottom: '0.75rem',
+                        border: `1px solid ${exp.color}`,
+                        borderRadius: '4px',
+                        fontFamily: 'Share Tech Mono, monospace',
+                        fontSize: '0.55rem',
+                        color: exp.color,
+                        letterSpacing: '0.1em',
+                        whiteSpace: 'nowrap',
                       }}
-                    />
-                    {exp.type}
-                  </span>
+                    >
+                      <span
+                        style={{
+                          width: 6,
+                          height: 6,
+                          borderRadius: '50%',
+                          background: exp.color,
+                          boxShadow: `0 0 8px ${exp.color}`,
+                          animation: 'pulse-glow 2s infinite',
+                        }}
+                      />
+                      {exp.type}
+                    </span>
 
-                  <h2
+                    <h2
+                      style={{
+                        fontSize: 'clamp(1rem, 4vw, 1.3rem)',
+                        fontFamily: 'Orbitron, monospace',
+                        marginBottom: '0.5rem',
+                        color: exp.color,
+                        textShadow: `0 0 10px ${exp.color}33`,
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      {exp.company}
+                    </h2>
+                  </div>
+
+                  {/* Date - Mobile and Desktop */}
+                  <div
                     style={{
-                      fontSize: '1.4rem',
-                      fontFamily: 'Orbitron, monospace',
-                      marginBottom: '0.5rem',
-                      color: exp.color,
-                      textShadow: `0 0 10px ${exp.color}33`,
+                      textAlign: 'right',
+                      fontFamily: 'Share Tech Mono, monospace',
+                      fontSize: '0.75rem',
+                      whiteSpace: 'nowrap',
                     }}
                   >
-                    {exp.company}
-                  </h2>
+                    <div style={{ color: exp.color, fontWeight: 'bold', marginBottom: '0.25rem' }}>
+                      {exp.startDate}
+                    </div>
+                    <div style={{ color: 'var(--text-dim)', fontSize: '0.65rem' }}>
+                      {exp.endDate} {exp.year}
+                    </div>
+                  </div>
+                </div>
 
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                  }}
+                >
                   <div
                     style={{
                       display: 'flex',
-                      gap: '1rem',
-                      fontSize: '0.85rem',
+                      gap: '0.75rem',
+                      fontSize: 'clamp(0.7rem, 2.5vw, 0.85rem)',
                       color: 'var(--text-dim)',
                       fontFamily: 'Share Tech Mono, monospace',
-                      marginBottom: '0.5rem',
+                      flexWrap: 'wrap',
                     }}
                   >
                     <span>{exp.division}</span>
@@ -149,28 +186,12 @@ export default function Experience() {
 
                   <div
                     style={{
-                      fontSize: '0.8rem',
+                      fontSize: 'clamp(0.7rem, 2vw, 0.8rem)',
                       color: 'var(--text-ghost)',
                       fontFamily: 'Share Tech Mono, monospace',
                     }}
                   >
                     Duration: {exp.duration}
-                  </div>
-                </div>
-
-                {/* Date */}
-                <div
-                  style={{
-                    textAlign: 'right',
-                    fontFamily: 'Share Tech Mono, monospace',
-                    fontSize: '0.85rem',
-                  }}
-                >
-                  <div style={{ color: exp.color, fontWeight: 'bold', marginBottom: '0.25rem' }}>
-                    {exp.startDate}
-                  </div>
-                  <div style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>
-                    {exp.endDate} {exp.year}
                   </div>
                 </div>
               </div>
@@ -215,7 +236,7 @@ export default function Experience() {
                 </div>
                 <h3
                   style={{
-                    fontSize: '1.1rem',
+                    fontSize: 'clamp(0.95rem, 3vw, 1.1rem)',
                     fontFamily: 'Rajdhani, sans-serif',
                     marginBottom: '0.5rem',
                     color: 'var(--text-primary)',
@@ -223,7 +244,7 @@ export default function Experience() {
                 >
                   {exp.project}
                 </h3>
-                <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: 'clamp(0.8rem, 2.2vw, 0.9rem)', color: 'var(--text-dim)', lineHeight: 1.6 }}>
                   {exp.description}
                 </p>
               </div>
@@ -279,7 +300,7 @@ export default function Experience() {
                           style={{
                             display: 'flex',
                             gap: '0.75rem',
-                            fontSize: '0.9rem',
+                            fontSize: 'clamp(0.75rem, 2vw, 0.9rem)',
                             color: 'var(--text-dim)',
                             alignItems: 'flex-start',
                           }}
@@ -335,15 +356,16 @@ export default function Experience() {
                         <span
                           key={tech}
                           style={{
-                            padding: '0.4rem 0.8rem',
+                            padding: '0.35rem 0.6rem',
                             border: `1px solid ${exp.color}`,
                             borderRadius: '3px',
-                            fontSize: '0.75rem',
+                            fontSize: 'clamp(0.6rem, 1.8vw, 0.75rem)',
                             color: exp.color,
                             fontFamily: 'Share Tech Mono, monospace',
                             backgroundColor: `${exp.color}11`,
                             transition: 'all 0.2s ease',
                             cursor: 'default',
+                            whiteSpace: 'nowrap',
                           }}
                         >
                           {tech}
@@ -362,9 +384,11 @@ export default function Experience() {
                   marginTop: expandedId === exp.id ? '1.5rem' : '1rem',
                   paddingTop: '1rem',
                   borderTop: `1px solid ${exp.color}22`,
-                  fontSize: '0.75rem',
+                  fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)',
                   fontFamily: 'Share Tech Mono, monospace',
                   color: 'var(--text-ghost)',
+                  flexWrap: 'wrap',
+                  gap: '0.5rem',
                 }}
               >
                 <span>SYS.STATUS :: {exp.status}</span>
@@ -377,25 +401,25 @@ export default function Experience() {
         {/* Call to Action */}
         <div
           style={{
-            padding: '2rem',
+            padding: 'clamp(1rem, 4vw, 2rem)',
             border: `1px solid var(--neon-green)33`,
             borderRadius: '4px',
             textAlign: 'center',
             backgroundColor: 'var(--neon-green)08',
           }}
         >
-          <p style={{ color: 'var(--text-dim)', marginBottom: '1rem', fontSize: '0.95rem' }}>
-           
+          <p style={{ color: 'var(--text-dim)', marginBottom: '1rem', fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)' }}>
+            💼 Ready to explore more professional achievements
           </p>
           <p
             style={{
               fontFamily: 'Share Tech Mono, monospace',
-              fontSize: '0.75rem',
+              fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)',
               color: 'var(--text-ghost)',
               letterSpacing: '0.1em',
             }}
           >
-            
+            Click cards to expand and view detailed contributions & tech stack
           </p>
         </div>
       </div>
