@@ -89,12 +89,12 @@ export default function Skills() {
         {/* Skill groups */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(460px, 1fr))',
-          gap: '1.5rem',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))',
+          gap: 'clamp(1rem, 3vw, 1.5rem)',
           marginBottom: '3rem',
         }}>
           {SKILL_GROUPS.map((group) => (
-            <div key={group.label} className="cyber-card" style={{ padding: '2rem' }}>
+            <div key={group.label} className="cyber-card" style={{ padding: 'clamp(1.25rem, 3.5vw, 2rem)' }}>
 
               {/* Group header */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.75rem' }}>
@@ -115,15 +115,15 @@ export default function Skills() {
               </div>
 
               {/* Skill tags */}
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.4rem, 2vw, 0.5rem)' }}>
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
                     style={{
                       fontFamily: 'Share Tech Mono, monospace',
-                      fontSize: '0.7rem',
+                      fontSize: 'clamp(0.65rem, 1.8vw, 0.7rem)',
                       color: 'var(--text-dim)',
-                      padding: '0.4rem 0.9rem',
+                      padding: 'clamp(0.3rem, 1.5vw, 0.4rem) clamp(0.7rem, 2vw, 0.9rem)',
                       border: '1px solid var(--border-dim)',
                       background: 'rgba(255,255,255,0.02)',
                       letterSpacing: '0.08em',
@@ -154,20 +154,20 @@ export default function Skills() {
         </div>
 
         {/* Tools & Technologies */}
-        <div className="cyber-card" style={{ padding: '2rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
+        <div className="cyber-card" style={{ padding: 'clamp(1.25rem, 3.5vw, 2rem)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: 'clamp(1rem, 2vw, 1.5rem)' }}>
             <div style={{ width: 3, height: 24, background: 'var(--neon-cyan)', boxShadow: 'var(--glow-cyan)' }} />
-            <span style={{ fontFamily: 'Orbitron, monospace', fontSize: '0.75rem', fontWeight: 700, color: 'var(--neon-cyan)', letterSpacing: '0.2em' }}>
+            <span style={{ fontFamily: 'Orbitron, monospace', fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)', fontWeight: 700, color: 'var(--neon-cyan)', letterSpacing: '0.2em' }}>
               TOOLS & TECHNOLOGIES
             </span>
           </div>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'clamp(0.4rem, 2vw, 0.6rem)' }}>
             {TOOLS.map((t, i) => (
               <div key={t} style={{
                 fontFamily: 'Share Tech Mono, monospace',
-                fontSize: '0.7rem',
+                fontSize: 'clamp(0.65rem, 1.8vw, 0.7rem)',
                 color: 'var(--text-dim)',
-                padding: '0.45rem 0.9rem',
+                padding: 'clamp(0.3rem, 1.5vw, 0.45rem) clamp(0.7rem, 2vw, 0.9rem)',
                 border: '1px solid var(--border-dim)',
                 background: 'rgba(0,245,255,0.02)',
                 letterSpacing: '0.08em',
@@ -201,6 +201,12 @@ export default function Skills() {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to   { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+          .cyber-card {
+            padding: clamp(1rem, 3vw, 1.5rem) !important;
+          }
         }
       `}</style>
     </section>

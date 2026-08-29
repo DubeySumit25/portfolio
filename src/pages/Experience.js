@@ -57,6 +57,7 @@ export default function Experience() {
             gridTemplateColumns: '1fr',
             gap: 'clamp(1rem, 3vw, 2rem)',
             marginBottom: '3rem',
+            maxWidth: '100%',
           }}
         >
           {EXPERIENCES.map((exp, idx) => (
@@ -64,13 +65,14 @@ export default function Experience() {
               key={exp.id}
               className="cyber-card"
               style={{
-                padding: 'clamp(1rem, 4vw, 2rem)',
+                padding: 'clamp(1rem, 3.5vw, 2rem)',
                 border: `1px solid ${exp.color}33`,
                 borderLeft: `3px solid ${exp.color}`,
                 cursor: 'pointer',
                 transition: 'all 0.3s ease',
                 transform: expandedId === exp.id ? 'scale(1.005)' : 'scale(1)',
                 overflow: 'hidden',
+                maxWidth: '100%',
               }}
               onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
               onMouseEnter={(e) => {
