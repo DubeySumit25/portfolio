@@ -1,135 +1,422 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const responsibilities = [
-  'Developed authentication functionality for authorised users.',
-  'Implemented a Forgot Password workflow using email-based verification.',
-  'Worked with Spring Security for authentication and authorization.',
-  'Developed backend functionality using Java and Spring Boot.',
-  'Gained hands-on experience working on a practical backend application.',
-];
-
-const technologies = [
-  'Java',
-  'Spring Boot',
-  'Spring Security',
-  'Authentication',
-  'Authorization',
-  'Email Verification',
+const EXPERIENCES = [
+  {
+    id: 1,
+    company: 'ENGINEERS INDIA LIMITED',
+    division: 'ITS DIVISION',
+    position: 'BACKEND DEVELOPMENT INTERN',
+    type: 'COMPLETED INTERNSHIP',
+    startDate: 'JUN 11',
+    endDate: 'JUL 10',
+    year: '2026',
+    duration: '1 Month',
+    project: 'AUTHENTICATION OF AUTHORISED USER',
+    description:
+      'Worked on a backend authentication project focused on secure user authentication and authorization using Java Spring Boot. Implemented enterprise-grade security practices with Spring Security and developed features for handling user sessions and permissions.',
+    responsibilities: [
+      'Developed authentication functionality for authorised users.',
+      'Implemented a Forgot Password workflow using email-based verification.',
+      'Worked with Spring Security for authentication and authorization.',
+      'Developed backend functionality using Java and Spring Boot.',
+      'Gained hands-on experience working on a practical backend application.',
+    ],
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'Spring Security',
+      'Authentication',
+      'Authorization',
+      'Email Verification',
+      'REST APIs',
+    ],
+    status: 'COMPLETED',
+    color: 'var(--neon-cyan)',
+  },
 ];
 
 export default function Experience() {
+  const [expandedId, setExpandedId] = useState(null);
+
   return (
-    <section className="section experience-section">
+    <section className="section" style={{ position: 'relative' }}>
       <div className="grid-bg" />
 
-      <div className="section-inner">
-
-        <div className="section-label">
-          // 04 — CAREER_LOG
-        </div>
-
+      <div className="section-inner" style={{ position: 'relative', zIndex: 1 }}>
+        {/* Header */}
+        <div className="section-label">// 04 — CAREER_LOG</div>
         <h1 className="section-title">
           EXPERIENCE<span className="title-accent">.</span>
         </h1>
-
         <div className="section-divider" />
 
-        <div className="cyber-card experience-card">
-
-          <div className="experience-header">
-            <div>
-              <span className="experience-status">
-                <span className="status-dot" />
-                COMPLETED INTERNSHIP
-              </span>
-
-              <h2>ENGINEERS INDIA LIMITED</h2>
-
-              <div className="experience-meta">
-                <span>ITS DIVISION</span>
-                <span className="meta-separator">///</span>
-                <span>BACKEND DEVELOPMENT INTERN</span>
-              </div>
-            </div>
-
-            <div className="experience-date">
-              <span>JUN</span>
-              <strong>11</strong>
-              <span>—</span>
-              <strong>JUL 10</strong>
-              <span>2026</span>
-            </div>
-          </div>
-
-          <div className="experience-line" />
-
-          <div className="experience-project">
-            <div className="experience-label">
-              <span>PROJECT</span>
-              <span className="label-line" />
-            </div>
-
-            <h3>
-              AUTHENTICATION OF AUTHORISED USER
-            </h3>
-
-            <p>
-              Worked on a backend authentication project focused on
-              secure user authentication and authorization using
-              Java Spring Boot.
-            </p>
-          </div>
-
-          <div className="experience-content">
-
-            <div className="experience-column">
-              <div className="experience-label">
-                <span>01</span>
-                <span>CONTRIBUTIONS</span>
-              </div>
-
-              <ul className="experience-list">
-                {responsibilities.map((item, index) => (
-                  <li key={index}>
-                    <span className="list-index">
-                      0{index + 1}
-                    </span>
-
-                    <span className="list-arrow">›</span>
-
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="experience-column">
-              <div className="experience-label">
-                <span>02</span>
-                <span>TECH STACK</span>
-              </div>
-
-              <div className="experience-tech">
-                {technologies.map((technology) => (
+        {/* Experience Cards */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '2rem',
+            marginBottom: '3rem',
+          }}
+        >
+          {EXPERIENCES.map((exp, idx) => (
+            <div
+              key={exp.id}
+              className="cyber-card"
+              style={{
+                padding: '2rem',
+                border: `1px solid ${exp.color}33`,
+                borderLeft: `3px solid ${exp.color}`,
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                transform: expandedId === exp.id ? 'scale(1.01)' : 'scale(1)',
+              }}
+              onClick={() => setExpandedId(expandedId === exp.id ? null : exp.id)}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderLeftColor = exp.color;
+                e.currentTarget.style.boxShadow = `0 0 20px ${exp.color}33, inset 0 0 20px ${exp.color}11`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderLeftColor = exp.color;
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              {/* Header */}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr auto',
+                  gap: '2rem',
+                  alignItems: 'start',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                <div>
                   <span
-                    className="experience-tech-tag"
-                    key={technology}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      padding: '0.3rem 0.8rem',
+                      marginBottom: '0.75rem',
+                      border: `1px solid ${exp.color}`,
+                      borderRadius: '4px',
+                      fontFamily: 'Share Tech Mono, monospace',
+                      fontSize: '0.6rem',
+                      color: exp.color,
+                      letterSpacing: '0.1em',
+                    }}
                   >
-                    {technology}
+                    <span
+                      style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        background: exp.color,
+                        boxShadow: `0 0 8px ${exp.color}`,
+                        animation: 'pulse-glow 2s infinite',
+                      }}
+                    />
+                    {exp.type}
                   </span>
-                ))}
+
+                  <h2
+                    style={{
+                      fontSize: '1.4rem',
+                      fontFamily: 'Orbitron, monospace',
+                      marginBottom: '0.5rem',
+                      color: exp.color,
+                      textShadow: `0 0 10px ${exp.color}33`,
+                    }}
+                  >
+                    {exp.company}
+                  </h2>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      gap: '1rem',
+                      fontSize: '0.85rem',
+                      color: 'var(--text-dim)',
+                      fontFamily: 'Share Tech Mono, monospace',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
+                    <span>{exp.division}</span>
+                    <span style={{ color: 'var(--text-ghost)' }}>///</span>
+                    <span>{exp.position}</span>
+                  </div>
+
+                  <div
+                    style={{
+                      fontSize: '0.8rem',
+                      color: 'var(--text-ghost)',
+                      fontFamily: 'Share Tech Mono, monospace',
+                    }}
+                  >
+                    Duration: {exp.duration}
+                  </div>
+                </div>
+
+                {/* Date */}
+                <div
+                  style={{
+                    textAlign: 'right',
+                    fontFamily: 'Share Tech Mono, monospace',
+                    fontSize: '0.85rem',
+                  }}
+                >
+                  <div style={{ color: exp.color, fontWeight: 'bold', marginBottom: '0.25rem' }}>
+                    {exp.startDate}
+                  </div>
+                  <div style={{ color: 'var(--text-dim)', fontSize: '0.75rem' }}>
+                    {exp.endDate} {exp.year}
+                  </div>
+                </div>
+              </div>
+
+              {/* Divider */}
+              <div
+                style={{
+                  height: '1px',
+                  background: `linear-gradient(90deg, ${exp.color}33, transparent)`,
+                  margin: '1.5rem 0',
+                }}
+              />
+
+              {/* Project Section */}
+              <div style={{ marginBottom: '1.5rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    marginBottom: '0.75rem',
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: 'Share Tech Mono, monospace',
+                      fontSize: '0.7rem',
+                      color: exp.color,
+                      letterSpacing: '0.1em',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    PROJECT
+                  </span>
+                  <div
+                    style={{
+                      flex: 1,
+                      height: '1px',
+                      background: `linear-gradient(90deg, ${exp.color}33, transparent)`,
+                    }}
+                  />
+                </div>
+                <h3
+                  style={{
+                    fontSize: '1.1rem',
+                    fontFamily: 'Rajdhani, sans-serif',
+                    marginBottom: '0.5rem',
+                    color: 'var(--text-primary)',
+                  }}
+                >
+                  {exp.project}
+                </h3>
+                <p style={{ fontSize: '0.9rem', color: 'var(--text-dim)', lineHeight: 1.6 }}>
+                  {exp.description}
+                </p>
+              </div>
+
+              {/* Expandable Content */}
+              {expandedId === exp.id && (
+                <div
+                  style={{
+                    animation: 'fadeInDown 0.3s ease',
+                    marginTop: '1.5rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      height: '1px',
+                      background: `linear-gradient(90deg, ${exp.color}33, transparent)`,
+                      margin: '1.5rem 0',
+                    }}
+                  />
+
+                  {/* Contributions */}
+                  <div style={{ marginBottom: '1.5rem' }}>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: 'Share Tech Mono, monospace',
+                          fontSize: '0.7rem',
+                          color: exp.color,
+                          letterSpacing: '0.1em',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        01 — CONTRIBUTIONS
+                      </span>
+                    </div>
+                    <ul
+                      style={{
+                        listStyle: 'none',
+                        display: 'grid',
+                        gap: '0.75rem',
+                      }}
+                    >
+                      {exp.responsibilities.map((resp, i) => (
+                        <li
+                          key={i}
+                          style={{
+                            display: 'flex',
+                            gap: '0.75rem',
+                            fontSize: '0.9rem',
+                            color: 'var(--text-dim)',
+                            alignItems: 'flex-start',
+                          }}
+                        >
+                          <span
+                            style={{
+                              color: exp.color,
+                              fontFamily: 'Share Tech Mono, monospace',
+                              fontSize: '0.75rem',
+                              fontWeight: 'bold',
+                              minWidth: '1.5rem',
+                            }}
+                          >
+                            0{i + 1}
+                          </span>
+                          <span style={{ color: exp.color, opacity: 0.6 }}>›</span>
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Technologies */}
+                  <div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.75rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      <span
+                        style={{
+                          fontFamily: 'Share Tech Mono, monospace',
+                          fontSize: '0.7rem',
+                          color: exp.color,
+                          letterSpacing: '0.1em',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        02 — TECH STACK
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        gap: '0.5rem',
+                      }}
+                    >
+                      {exp.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          style={{
+                            padding: '0.4rem 0.8rem',
+                            border: `1px solid ${exp.color}`,
+                            borderRadius: '3px',
+                            fontSize: '0.75rem',
+                            color: exp.color,
+                            fontFamily: 'Share Tech Mono, monospace',
+                            backgroundColor: `${exp.color}11`,
+                            transition: 'all 0.2s ease',
+                            cursor: 'default',
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Status Footer */}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginTop: expandedId === exp.id ? '1.5rem' : '1rem',
+                  paddingTop: '1rem',
+                  borderTop: `1px solid ${exp.color}22`,
+                  fontSize: '0.75rem',
+                  fontFamily: 'Share Tech Mono, monospace',
+                  color: 'var(--text-ghost)',
+                }}
+              >
+                <span>SYS.STATUS :: {exp.status}</span>
+                <span>{exp.company.split(' ').slice(-1)[0]} // {exp.division.split(' ')[0]}</span>
               </div>
             </div>
+          ))}
+        </div>
 
-          </div>
-
-          <div className="experience-footer">
-            <span>SYS.STATUS :: COMPLETED</span>
-            <span>EIL // ITS</span>
-          </div>
-
+        {/* Call to Action */}
+        <div
+          style={{
+            padding: '2rem',
+            border: `1px solid var(--neon-green)33`,
+            borderRadius: '4px',
+            textAlign: 'center',
+            backgroundColor: 'var(--neon-green)08',
+          }}
+        >
+          <p style={{ color: 'var(--text-dim)', marginBottom: '1rem', fontSize: '0.95rem' }}>
+            💼 More experiences to showcase? Your professional journey is just beginning...
+          </p>
+          <p
+            style={{
+              fontFamily: 'Share Tech Mono, monospace',
+              fontSize: '0.75rem',
+              color: 'var(--text-ghost)',
+              letterSpacing: '0.1em',
+            }}
+          >
+            Click cards to expand and view detailed contributions & tech stack
+          </p>
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes pulse-glow {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+      `}</style>
     </section>
   );
 }
