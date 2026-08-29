@@ -42,27 +42,26 @@ const PROJECTS = [
   },
 
   {
-    id: 3,
-    title: 'INTEL IMAGE CLASSIFICATION',
-    subtitle: 'Scene Recognition with LoRA Fine-Tuning',
-    description:
-      'Built a scene classification pipeline using LoRA fine-tuning on ResNet18, with data augmentation, early stopping, GPU-accelerated training, and comprehensive model evaluation.',
-    tech: [
-      'Python',
-      'PyTorch',
-      'Torchvision',
-      'ResNet18',
-      'LoRA',
-      'Fine-Tuning',
-      'CNN',
-      'Kaggle GPU',
-    ],
-    tag: 'AI',
-    color: 'var(--neon-green)',
-    status: 'LIVE',
-    demo: 'http://dashboard.render.com/web/srv-da4l030n74is73duhsgg',
-    source: 'https://github.com/DubeySumit25/Intel-Image-Classification',
-  },
+  id: 3,
+  title: 'INTEL IMAGE CLASSIFICATION',
+  subtitle: 'Scene Recognition with LoRA Fine-Tuning',
+  description:
+    'Built a scene classification pipeline using LoRA fine-tuning on ResNet18, with data augmentation, early stopping, GPU-accelerated training, and comprehensive model evaluation.',
+  tech: [
+    'Python',
+    'PyTorch',
+    'Torchvision',
+    'ResNet18',
+    'LoRA',
+    'Fine-Tuning',
+    'CNN',
+    'Kaggle GPU'
+  ],
+  tag: 'AI',
+  color: 'var(--neon-green)',
+  status: 'COMPLETED',
+  source: 'https://github.com/DubeySumit25/intel-image-classifier',
+},
 ];
 
 const FILTERS = ['ALL', 'FULL STACK', 'AI'];
