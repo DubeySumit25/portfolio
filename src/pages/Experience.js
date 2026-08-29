@@ -100,7 +100,7 @@ export default function Experience() {
                     flexWrap: 'wrap',
                   }}
                 >
-                  <div style={{ flex: 1, minWidth: '200px' }}>
+                  <div style={{ flex: 1, minWidth: '0' }}>
                     <span
                       style={{
                         display: 'inline-flex',
@@ -149,14 +149,15 @@ export default function Experience() {
                     style={{
                       textAlign: 'right',
                       fontFamily: 'Share Tech Mono, monospace',
-                      fontSize: '0.75rem',
+                      fontSize: 'clamp(0.65rem, 1.8vw, 0.75rem)',
                       whiteSpace: 'nowrap',
+                      flexShrink: 0,
                     }}
                   >
                     <div style={{ color: exp.color, fontWeight: 'bold', marginBottom: '0.25rem' }}>
                       {exp.startDate}
                     </div>
-                    <div style={{ color: 'var(--text-dim)', fontSize: '0.65rem' }}>
+                    <div style={{ color: 'var(--text-dim)', fontSize: 'clamp(0.6rem, 1.5vw, 0.65rem)' }}>
                       {exp.endDate} {exp.year}
                     </div>
                   </div>
@@ -439,6 +440,12 @@ export default function Experience() {
         @keyframes pulse-glow {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.5; }
+        }
+
+        @media (max-width: 768px) {
+          .cyber-card {
+            padding: clamp(1rem, 3vw, 1.5rem) !important;
+          }
         }
       `}</style>
     </section>
