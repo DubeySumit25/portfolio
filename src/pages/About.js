@@ -55,10 +55,10 @@ export default function About() {
   }, [typed, deleting, roleIdx]);
 
   const stats = [
-    { value: '8.5',   label: 'CGPA' },
-    { value: '10+', label: 'PROJECTS' },
+    { value: '8.62',   label: 'CGPA' },
+    { value: '5+', label: 'PROJECTS' },
     { value: '10+', label: 'TECHNOLOGIES' },
-    { value: '250+',   label: 'LEETCODE' },
+    { value: '750+',   label: 'LEETCODE' },
   ];
 
   return (
@@ -157,10 +157,9 @@ export default function About() {
           transform: visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'all 0.6s ease 0.5s',
         }}>
-          2nd year IT student and aspiring Full Stack Java Developer, passionate about DSA and AI/ML.
-I build end-to-end apps with Java, Spring Boot and React while exploring
-the world of Machine Learning. Always learning, always building.
-        </p>
+          Third-year IT student and aspiring AI Engineer with a strong foundation in DSA, Machine Learning, and Deep Learning. 
+          I build end-to-end applications using Java, Spring Boot, React, and modern AI technologies, with a passion for solving problems 
+          and turning ideas into real-world solutions.        </p>
 
         {/* CTA buttons */}
         <div style={{

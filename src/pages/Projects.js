@@ -5,17 +5,65 @@ const PROJECTS = [
     id: 1,
     title: 'BOOKMYEVENT',
     subtitle: 'Event Management & Booking Platform',
-    description: 'Developed a full-stack event management platform enabling event creation, booking, and user role management with secure JWT authentication and responsive UI for seamless user experience.',
+    description:
+      'Built a full-stack event management platform with event creation, booking, role-based access, and secure JWT authentication, featuring a responsive React interface and Spring Boot backend.',
     tech: ['React', 'Spring Boot', 'MySQL', 'JWT', 'Railway', 'Render', 'Vercel'],
     tag: 'FULL STACK',
     color: 'var(--neon-green)',
     status: 'LIVE',
     demo: 'https://bookmyevent25.vercel.app',
     source: 'https://github.com/DubeySumit25/bookmyevent-backend',
-  }
+  },
+
+  {
+    id: 2,
+    title: 'CITYFIX',
+    subtitle: 'Civic Complaint Management Platform',
+    description:
+      'Built a full-stack civic complaint platform with image uploads, complaint tracking, role-based access, admin management, search and filtering, and analytics for monitoring urban issues.',
+    tech: [
+      'React',
+      'Vite',
+      'Tailwind CSS',
+      'Spring Boot',
+      'Java',
+      'PostgreSQL',
+      'Supabase',
+      'JWT',
+      'Docker',
+      'Render',
+      'Vercel',
+    ],
+    tag: 'FULL STACK',
+    color: 'var(--neon-green)',
+    status: 'LIVE',
+    demo: 'https://city-fixsumit.vercel.app/',
+    source: 'https://github.com/DubeySumit25/CityFix-Backend',
+  },
+
+  {
+    id: 3,
+    title: 'INTEL IMAGE CLASSIFICATION',
+    subtitle: 'Scene Recognition with LoRA Fine-Tuning',
+    description:
+      'Built a scene classification pipeline using LoRA fine-tuning on ResNet18, with data augmentation, early stopping, GPU-accelerated training, and comprehensive model evaluation.',
+    tech: [
+      'Python',
+      'PyTorch',
+      'Torchvision',
+      'ResNet18',
+      'LoRA',
+      'Fine-Tuning',
+      'CNN',
+      'Kaggle GPU',
+    ],
+    tag: 'AI',
+    color: 'var(--neon-green)',
+    status: 'COMPLETED',
+  },
 ];
 
-const FILTERS = ['ALL', 'FULL STACK'];
+const FILTERS = ['ALL', 'FULL STACK', 'AI'];
 
 export default function Projects() {
   const [active, setActive] = useState('ALL');
