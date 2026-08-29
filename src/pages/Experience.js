@@ -409,7 +409,7 @@ export default function Experience() {
           }}
         >
           <p style={{ color: 'var(--text-dim)', marginBottom: '1rem', fontSize: 'clamp(0.85rem, 2.5vw, 0.95rem)' }}>
-            💼 Ready to explore more professional achievements
+            
           </p>
           <p
             style={{
@@ -419,7 +419,7 @@ export default function Experience() {
               letterSpacing: '0.1em',
             }}
           >
-            Click cards to expand and view detailed contributions & tech stack
+           
           </p>
         </div>
       </div>
