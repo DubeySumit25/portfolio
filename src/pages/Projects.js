@@ -216,23 +216,39 @@ export default function Projects() {
               </div>
 
               {/* Links */}
-              <div style={{ display: 'flex', gap: '0.75rem' }}>
-                <button
-                  className="btn-neon"
-                  style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
-                  onClick={() => window.open(p.demo, '_blank')}
-                >
-                  LIVE DEMO
-                </button>
+<div style={{ display: 'flex', gap: '0.75rem' }}>
+  {p.demo && (
+    <a
+      href={p.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-neon"
+      style={{
+        fontSize: '0.6rem',
+        padding: '0.5rem 1rem',
+        textDecoration: 'none',
+      }}
+    >
+      LIVE DEMO
+    </a>
+  )}
 
-                <button
-                  className="btn-neon btn-neon-pink"
-                  style={{ fontSize: '0.6rem', padding: '0.5rem 1rem' }}
-                  onClick={() => window.open(p.source, '_blank')}
-                >
-                  SOURCE
-                </button>
-              </div>
+  {p.source && (
+    <a
+      href={p.source}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="btn-neon btn-neon-pink"
+      style={{
+        fontSize: '0.6rem',
+        padding: '0.5rem 1rem',
+        textDecoration: 'none',
+      }}
+    >
+      SOURCE
+    </a>
+  )}
+</div>
 
               {/* Corner accent */}
               <div style={{
