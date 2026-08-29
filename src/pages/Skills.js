@@ -4,30 +4,72 @@ const SKILL_GROUPS = [
   {
     label: 'FRONTEND',
     color: 'var(--neon-cyan)',
-    skills: ['React / Next.js', 'TypeScript', 'CSS / Tailwind', 'HTML5'],
+    skills: ['React', 'Next.js', 'JavaScript', 'TypeScript', 'Tailwind CSS'],
   },
+
   {
     label: 'BACKEND',
     color: 'var(--neon-pink)',
-    skills: ['Spring Boot', 'Java', 'Node.js', 'REST / GraphQL'],
+    skills: ['Java', 'Spring Boot', 'Python', 'Django', 'Flask', 'REST APIs'],
   },
+
   {
     label: 'DATABASE',
     color: 'var(--neon-purple)',
-    skills: ['PostgreSQL', 'MongoDB', 'MySQL'],
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'Supabase'],
   },
-  {
-    label: 'DSA',
-    color: 'var(--neon-cyan)',
-    skills: ['Arrays / Strings', 'Trees / Graphs', 'Dynamic Programming', 'Sorting / Searching'],
-  },
+
   {
     label: 'AI / ML',
+    color: 'var(--neon-cyan)',
+    skills: [
+      'Machine Learning',
+      'Deep Learning',
+      'PyTorch',
+      'CNN',
+      'Computer Vision',
+      'Fine-Tuning',
+      'LoRA / QLoRA',
+    ],
+  },
+
+  {
+    label: 'GEN AI',
     color: 'var(--neon-pink)',
-    skills: ['Python', 'NumPy / Pandas', 'Scikit-Learn', 'TensorFlow / Keras'],
+    skills: [
+      'LLMs',
+      'RAG',
+      'LangChain',
+      'LangGraph',
+      'MCP',
+      'Embeddings',
+      'Vector Databases',
+    ],
+  },
+
+  {
+    label: 'REAL-TIME',
+    color: 'var(--neon-purple)',
+    skills: [
+      'WebSockets',
+      'Real-Time Systems',
+      'Event-Driven Architecture',
+    ],
+  },
+
+  {
+    label: 'ENGINEERING',
+    color: 'var(--neon-cyan)',
+    skills: [
+      'DSA',
+      'LLD',
+      'OOP',
+      'Git / GitHub',
+      'Docker',
+      'REST APIs',
+    ],
   },
 ];
-
 const TOOLS = [
   'Git', 'IntelliJ IDEA', 'VS Code', 'Postman',
   'Python', 'NumPy', 'Pandas', 'Scikit-Learn', 'LeetCode',

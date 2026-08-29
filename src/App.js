@@ -7,7 +7,7 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import DataStreams from './components/DataStreams';
-
+import Experience from './pages/Experience';
 function Cursor() {
   const dot  = useRef(null);
   const ring = useRef(null);
@@ -67,6 +67,7 @@ function AppInner() {
           <Route path="/"         element={<About />}    />
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills"   element={<Skills />}   />
+          <Route path="/experience" element={<Experience />} />
           <Route path="/contact"  element={<Contact />}  />
         </Routes>
       </PageTransition>

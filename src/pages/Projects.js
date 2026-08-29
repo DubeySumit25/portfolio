@@ -59,7 +59,8 @@ const PROJECTS = [
   ],
   tag: 'AI',
   color: 'var(--neon-green)',
-  status: 'COMPLETED',
+  status: 'LIVE',
+  demo: 'https://intel-image-classifier-y7my.onrender.com/',
   source: 'https://github.com/DubeySumit25/intel-image-classifier',
 },
 ];
