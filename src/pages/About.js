@@ -56,7 +56,7 @@ export default function About() {
 
   const stats = [
     { value: '8.62',   label: 'CGPA' },
-    { value: '5+', label: 'PROJECTS' },
+    { value: '3', label: 'PROJECTS' },
     { value: '10+', label: 'TECHNOLOGIES' },
     { value: '750+',   label: 'LEETCODE' },
   ];
