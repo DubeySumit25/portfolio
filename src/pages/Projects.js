@@ -60,6 +60,8 @@ const PROJECTS = [
     tag: 'AI',
     color: 'var(--neon-green)',
     status: 'COMPLETED',
+    demo: 'http://dashboard.render.com/web/srv-da4l030n74is73duhsgg',
+    source: 'https://github.com/DubeySumit25/Intel-Image-Classification'
   },
 ];
 
